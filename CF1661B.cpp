@@ -7,41 +7,29 @@ using namespace std;
 #define                mp make_pair
 #define                in insert
 #define                ll long long 
-void swap(int x,int y){
-	int tem;
-	tem = x;
-	x = y;
-	y = tem;
-}
 
 void solve(){
-	int n;
-	cin >> n;
-	ll int a[n];
-	ll int b[n];
-	for(int i = 0; i < n; i++){
-		cin >> a[i];
-	}
-	for(int i = 0; i < n; i++){
-		cin >> b[i];
-	}
-	
-	for(int i = 0; i < n-1; i++){
-		int same = abs(a[i] - a[i+1]) + abs(b[i] - b[i + 1]);
-		int cross = abs(a[i] - b[i+1]) + abs(a[i+1] - b[i]);
-		if(same > cross){
-			int tem = a[i+1];
-			a[i+1] = b[i+1];
-			b[i+1] = tem;
+	ll int mod = 32768;
+	ll int n;
+	cin >> n ;
+	int ans;
+	n = n % mod; 
+	for (int i = 0; i < 16; i++){
+		ll int x = n + i;
+		int times = 0;
+		if(x % mod == 0) ans = i;
+		else{
+		while(x != 0){
+			x = x*2;
+			x = x % mod;
+			times++;
+			if(x == 0 && i == 0) ans = times;
+			if(x == 0) ans = min(ans,times+i);
 		}
 	}
-	ll int sum = 0;
-	for(int i = 0; i < n - 1; i++){
-		sum += abs(a[i] - a[i + 1]);
-		sum += abs(b[i] - b[i + 1]); 
 	}
-	cout << sum << endl;
-
+	
+	cout << ans << " ";
 	
 }
 
