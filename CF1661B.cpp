@@ -20,13 +20,13 @@ void solve(){
 		if(x % mod == 0) ans = i;
 		else{
 		while(x != 0){
-			x = x*2;
-			x = x % mod;
-			times++;
-			if(x == 0 && i == 0) ans = times;
-			if(x == 0) ans = min(ans,times+i);
+				x = x*2;
+				x = x % mod;
+				times++;
+				if(x == 0 && i == 0) ans = times;
+				if(x == 0) ans = min(ans,times+i);
+			}
 		}
-	}
 	}
 	
 	cout << ans << " ";
