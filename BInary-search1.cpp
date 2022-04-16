@@ -19,7 +19,7 @@ void solve(){
 	// }
 	sort(ar, ar+8);
 	int beg , end ,mid;
-	beg = 0;
+	beg = 0;	
 	end = 7;
 	//mid = (beg+end)/2;
 	int ind;
