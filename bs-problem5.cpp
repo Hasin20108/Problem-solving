@@ -26,11 +26,31 @@ int findLastOccurance(int ar[], int n, int x){
 	}
 	return result;
 }
+int findFirstOccurance(int ar[], int n, int x){
+	int high = n - 1;
+	int low = 0;
+
+	while(low < high){
+		int mid = (low + high)/2;
+		if(x <= ar[mid]){
+			high = mid;
+		}else{
+			low = mid + 1;
+		}
+	} 
+	return high;
+}
+int occuranceOfNumber(int ar[],int x, int n){
+	int first = findFirstOccurance(ar,x,n);
+	int last = findLastOccurance(ar,x,n);
+	
+	return last-first+1;
+}
 void solve(){
-	int ar[] = {2,5,6,8,10,10,11};
+	int ar[] = {1,2,2,2,5,5,9,9,9,9};
 	int sz = sizeof(ar)/sizeof(ar[0]);
-	int ind = findLastOccurance(ar,sz,10);
-	cout << "Last occurance of 10 = " << ind << endl;
+	int ind = occuranceOfNumber(ar,sz,2);
+	cout << "occurance of 2 = " << ind << endl;
 
 }
 

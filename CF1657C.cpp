@@ -7,31 +7,30 @@ using namespace std;
 #define                mp make_pair
 #define                in insert
 #define                ll long long
-int findLastOccurance(int ar[], int n, int x){
-	int high = n - 1;
-	int low = 0;
-	int result = -1;
-	while(low <= high){
-		int mid = (high + low) / 2;
-		if (x == ar[mid]){
-			result = mid;
-			low = mid + 1;
-		}
-		else if(x > ar[mid]){
-			low = mid + 1;
+void solve(){
+	string s;
+	int n;
+	cin >> n >> s;
+	int l = 0;
+	int count = 0;
+	while(l < n - 1){
+		if(s[l] == '('){
+			l += 2;
 		}
 		else{
-			high = mid - 1;
+			int r = l + 1;
+			while(r < n && s[r] != ')'){
+				r++;
+			}
+			if(r == n){
+				break;
+			}
+			l = r + 1;
 		}
+		count++;
 	}
-	return result;
-}
-void solve(){
-	int ar[] = {2,5,6,8,10,10,11};
-	int sz = sizeof(ar)/sizeof(ar[0]);
-	int ind = findLastOccurance(ar,sz,10);
-	cout << "Last occurance of 10 = " << ind << endl;
 
+	cout << count << " " << n - l << endl;
 }
 
 int main(){
@@ -41,7 +40,7 @@ int main(){
 //freopen("output.txt","w",stdout);
 #endif 
 	int testCase = 1;
-//cin >> testCase;
+cin >> testCase;
 	while(testCase--)
 		solve();
 	return 0;
