@@ -18,7 +18,7 @@ void solve(){
 	// 	cin >> ar[i];
 	// }
 	sort(ar, ar+8);
-	int beg , end ,mid;
+	int beg , end ,	mid;
 	beg = 0;	
 	end = 7;
 	//mid = (beg+end)/2;
