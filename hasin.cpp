@@ -6,25 +6,14 @@ using namespace std;
 #define                pb push_back
 #define                mp make_pair
 #define                in insert
-#define                ll long long
-void solve(){
-	int n , r, b;
-	cin >> n >> r  >> b;
-	int persegment = r / (b + 1);
-	int rest = r % (b + 1);
-	for(int i = 0; i < b + 1; i++){
-		for(int i = 0; i < persegment; i++){
-			cout << "R";
-		}
-		if(rest){
-			cout << "R";
-			rest--;
-		}
-		if(i < b) cout << "B";
+#define                ll long long 
+#define                forn(i, n) for(int i = 0; i < int(n); i++) 
 
-	}
-	cout << '\n';
- 
+void solve(){
+	string s = "10001";
+	cout << s[0] - '0' << endl;
+	s[1] =  '1' - (s[0] - '0');
+	cout << s[1];
 }
 
 int main(){
@@ -34,7 +23,7 @@ int main(){
 //freopen("output.txt","w",stdout);
 #endif 
 	int testCase = 1;
-cin >> testCase;
+//    cin >> testCase;
 	while(testCase--)
 		solve();
 	return 0;
