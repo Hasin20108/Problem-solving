@@ -17,22 +17,18 @@ void solve(){
 		cin >> ar[i];
 	}
 	ar[0] = 0ll;
-	ll int ans = 1e18;
-	ll int fixvalue = 0ll;
 
-	for(ll int i = 1; i <= n; i++){
-		ll int preans = fixvalue;
-		for(ll int j = i; j <= n; j++){
-			preans += b*(ar[j] - ar[i - 1]);
-			if(preans > ans) break;
-		}
-		ans = min(ans,preans);
-		fixvalue =fixvalue + b*(ar[i] - ar[i - 1]);
-		fixvalue =fixvalue + a*(ar[i] - ar[i - 1]);
-	}
-	cout << ans << endl;
-
-
+    ll int p[200001];
+    p[0] = 0;
+    for(int i = 1; i <= n; i++){
+    	p[i] = p[i -1] + ar[i];
+    }
+    ll int ans = 1e18;
+    for(int i = 0; i <= n; i++){
+    	ll int preans = (a+b)*ar[i] + b*(p[n]-p[i] - (n - i)*ar[i]);
+    	ans = min(ans,preans);
+    }
+    cout << ans << endl;
 }
 
 int main(){
